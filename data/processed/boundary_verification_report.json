@@ -1,0 +1,57 @@
+{
+  "execution_timestamp_utc": "2026-11-02T17:31:01.602324+00:00",
+  "operational_source": {
+    "name": "OpenStreetMap",
+    "role": "Community-maintained operational boundary",
+    "relation_id": 1942586,
+    "url": "https://nominatim.openstreetmap.org/details?osmtype=R&osmid=1942586&polygon_geojson=1&format=json",
+    "license": "Open Database License (ODbL) 1.0",
+    "retrieval_timestamp_utc": "2026-11-02T17:30:58.583115+00:00",
+    "http_status": 200,
+    "content_length_bytes": 24654
+  },
+  "operational_validation": {
+    "is_valid": true,
+    "crs": "EPSG:4326",
+    "bounds": [
+      76.83884,
+      28.40463,
+      77.34534,
+      28.88345
+    ],
+    "area_sqkm": 1482.43
+  },
+  "reference_source": {
+    "name": "DataMeet",
+    "role": "Independent civic/academic reference boundary (Census 2011)",
+    "url": "https://raw.githubusercontent.com/datameet/maps/master/docs/data/geojson/dists11.geojson",
+    "license": "Creative Commons Attribution 2.5 India (CC BY 2.5 IN)",
+    "retrieval_timestamp_utc": "2026-11-02T17:30:58.687358+00:00",
+    "http_status": 200,
+    "content_length_bytes": 27979803,
+    "districts_count": 9
+  },
+  "reference_validation": {
+    "is_valid": true,
+    "crs": "EPSG:4326",
+    "bounds": [
+      76.84251,
+      28.40305,
+      77.34765,
+      28.87932
+    ],
+    "area_sqkm": 1504.36
+  },
+  "cross_check": {
+    "osm_area_sqkm": 1482.43,
+    "datameet_area_sqkm": 1504.36,
+    "intersection_area_sqkm": 1463.79,
+    "union_area_sqkm": 1523.0,
+    "intersection_over_union_iou": 0.9611,
+    "symmetric_difference_sqkm": 59.21,
+    "area_difference_percentage": 1.46,
+    "cross_check_status": "CONCORDANT"
+  },
+  "primary_selected": "OSM_Relation_1942586",
+  "primary_role": "Operational community-maintained boundary with 96.1% concordance to DataMeet reference"
+}

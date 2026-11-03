@@ -1,0 +1,65 @@
+{
+  "execution_timestamp_utc": "2026-11-02T17:32:10.319580+00:00",
+  "audit_timestamp_utc": "2026-11-02T18:35:00.000000+00:00",
+  "configuration": {
+    "h3_resolution": 8,
+    "global_nominal_edge_length_meters": 461.35,
+    "global_nominal_hex_area_sqkm": 0.7373,
+    "boundary_source_file": "delhi_boundary.geojson",
+    "utm_crs_for_metric_calculations": "EPSG:32643 (UTM Zone 43N)"
+  },
+  "grid_statistics": {
+    "total_intersecting_cells": 2093,
+    "cells_with_centroid_inside": 1940,
+    "strictly_interior_cells": 1782,
+    "boundary_cells": 311,
+    "delhi_boundary_area_sqkm": 1482.4264,
+    "sum_clipped_cells_area_sqkm": 1482.4263,
+    "area_coverage_concordance_pct": 100.0
+  },
+  "local_empirical_metrics": {
+    "edge_length_geodesic_m": {
+      "mean": 542.91,
+      "median": 547.13,
+      "min": 526.96,
+      "max": 554.08,
+      "std": 10.54
+    },
+    "adjacent_centroid_spacing_geodesic_wgs84_m": {
+      "mean": 940.33,
+      "median": 933.31,
+      "min": 920.08,
+      "max": 966.41,
+      "std": 18.07
+    },
+    "adjacent_centroid_spacing_haversine_m": {
+      "mean": 940.9,
+      "median": 935.39,
+      "min": 921.52,
+      "max": 964.61
+    },
+    "adjacent_centroid_spacing_utm43n_m": {
+      "mean": 940.45,
+      "median": 933.44,
+      "min": 920.25,
+      "max": 966.51
+    }
+  },
+  "topological_validation": {
+    "delhi_boundary_area_sqm": 1482426386.65,
+    "grid_union_area_sqm": 1482426330.09,
+    "missing_gaps_sqm": 164.9,
+    "overlapping_geometries_sqm": 0.0,
+    "symmetric_difference_sqm": 273.26,
+    "topological_coverage_ratio": 0.99999996
+  },
+  "environment": {
+    "python_version": "3.9.6",
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "architecture": "arm64",
+    "h3_version": "3.7.7",
+    "geopandas_version": "1.0.1",
+    "shapely_version": "2.0.7",
+    "pandas_version": "2.3.3"
+  }
+}
