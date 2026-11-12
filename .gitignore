@@ -25,3 +25,6 @@ __pycache__/
 # Editor settings
 .vscode/
 .idea/
+
+# Large raw OpenStreetMap binary archives
+data/raw/osm/*.osm.pbf

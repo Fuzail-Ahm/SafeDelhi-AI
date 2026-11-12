@@ -1,0 +1,91 @@
+{
+  "source_url": "https://download.geofabrik.de/asia/india/northern-zone-latest.osm.pbf",
+  "resolved_url": "https://download.geofabrik.de/asia/india/northern-zone-261111.osm.pbf",
+  "source_snapshot_timestamp": "Wed, 11 Nov 2026 23:54:44 GMT",
+  "clipping_started_utc": "2026-11-12T12:46:56.021618+00:00",
+  "clipping_completed_utc": "2026-11-12T12:49:09.840835+00:00",
+  "elapsed_seconds": 133.82,
+  "source_pbf": {
+    "path": "data/raw/osm/northern-zone-latest.osm.pbf",
+    "size_bytes": 224864535,
+    "md5_checksum": "74a58d850f10edfedd7b1e50303bbb02",
+    "sha256_checksum": "fc881e8a1db51dc65cb4068809281784ad8dbca34fe51d8b9bd4b533a941d546",
+    "total_nodes_scanned": 33637407,
+    "total_ways_scanned": 3114925,
+    "total_relations_scanned": 15856
+  },
+  "boundary_filter": {
+    "path": "data/raw/boundaries/delhi_boundary.geojson",
+    "bounding_box": [
+      76.8388351,
+      28.4046285,
+      77.3453379,
+      28.8834464
+    ],
+    "nodes_in_bbox": 3337355,
+    "nodes_strictly_in_polygon": 2324282,
+    "ways_intersecting": 456837,
+    "relations_retained": 5000,
+    "relations_excluded_transboundary": 534
+  },
+  "clipped_pbf": {
+    "path": "data/raw/osm/delhi_clipped.osm.pbf",
+    "size_bytes": 21767824,
+    "md5_checksum": "ada375536d08cd90a66d83b54d26882d",
+    "sha256_checksum": "fd6227b15a238043bf1f55872fc259b96c2e0de953b6f6564f5f0f4ab23909c1",
+    "total_nodes": 2339764,
+    "total_ways": 456837,
+    "total_relations": 5000,
+    "back_referenced_nodes": 15482,
+    "observed_extent": [
+      75.7107514,
+      26.9976045,
+      78.0628669,
+      30.2006025
+    ],
+    "relation_type_distribution": {
+      "multipolygon": 2482,
+      "boundary": 1332,
+      "route": 754,
+      "public_transport": 234,
+      "restriction": 161,
+      "site": 14,
+      "building": 8,
+      "enforcement": 4,
+      "street": 2,
+      "canal": 2,
+      "untagged": 2,
+      "associatedBlock": 1,
+      "admin": 1,
+      "department": 1,
+      "tracks": 1,
+      "provides_feature": 1
+    }
+  },
+  "known_limitations": {
+    "boundary_crossing_ways_without_interior_nodes": {
+      "description": "Ways whose line segments cross the Delhi boundary polygon but have all vertex nodes outside the boundary are not captured by node-containment indexing. The extraction requires at least one node inside the boundary polygon.",
+      "total_missed_ways": 159,
+      "non_highway_features": 154,
+      "highway_features": 5,
+      "highway_details": [
+        {"way_id": 422346415, "highway": "residential", "name": null},
+        {"way_id": 1079381359, "highway": "residential", "name": null},
+        {"way_id": 1081345316, "highway": "residential", "name": null},
+        {"way_id": 1273080894, "highway": "trunk", "name": "Wazirabad Road"},
+        {"way_id": 1484792082, "highway": "residential", "name": null}
+      ],
+      "impact_assessment": "Interior urban street network within Delhi is 100% intact. The 5 missed highway segments are border-fringe stubs that do not affect Delhi metropolitan safety analysis."
+    },
+    "outer_reference_nodes_explanation": {
+      "description": "3,288 nodes (0.141% of total) lie outside the 5 km Delhi boundary buffer. These nodes belong exclusively to 24 continuous linear infrastructure ways (15 high-voltage 765kV/400kV power transmission lines, 3 canals, 3 metro tracks, 1 river, 2 rapid-rail/transit lines) that originate in Delhi and terminate in adjacent states. Preserving these nodes is required by libosmium to maintain geometric completeness and prevent broken way topologies."
+    }
+  },
+  "tool_versions": {
+    "osmium_pyosmium": "4.3.2",
+    "libosmium": "2.23.1",
+    "protozero": "1.8.2",
+    "shapely": "2.0.7",
+    "geopandas": "1.0.1"
+  }
+}
