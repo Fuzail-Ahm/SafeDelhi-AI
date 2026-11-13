@@ -28,3 +28,6 @@ __pycache__/
 
 # Large raw OpenStreetMap binary archives
 data/raw/osm/*.osm.pbf
+
+# Intermediate large network extraction GeoJSON (>100 MB GitHub limit)
+data/processed/delhi_road_network.geojson

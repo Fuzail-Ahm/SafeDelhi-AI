@@ -1,0 +1,161 @@
+{
+  "step": "Phase 2B Step 2A: OSM Road and Pedestrian Feature Extraction",
+  "extraction_started_utc": "2026-11-12T18:03:53.260983+00:00",
+  "extraction_completed_utc": "2026-11-12T18:04:17.379948+00:00",
+  "elapsed_seconds": 24.12,
+  "source_pbf": {
+    "path": "data/raw/osm/delhi_clipped.osm.pbf",
+    "size_bytes": 21767824,
+    "md5_checksum": "ada375536d08cd90a66d83b54d26882d",
+    "sha256_checksum": "fd6227b15a238043bf1f55872fc259b96c2e0de953b6f6564f5f0f4ab23909c1"
+  },
+  "boundary_reference": {
+    "path": "data/raw/boundaries/delhi_boundary.geojson",
+    "bounding_box": [
+      76.8388351,
+      28.4046285,
+      77.3453379,
+      28.8834464
+    ],
+    "area_sqkm": 1482.4263866480612
+  },
+  "layers": {
+    "delhi_road_network": {
+      "file_path": "data/processed/delhi_road_network.geojson",
+      "size_bytes": 130556802,
+      "md5_checksum": "ef85bfc8b8b26898c142ec1d7a3b5402",
+      "sha256_checksum": "fdfb9837edfb0b5a5f7a14195fa5fd2e23c92b9aa8da1d6b66b39e1b410a102e",
+      "feature_count": 151964,
+      "geometry_type": "LineString",
+      "crs": "EPSG:4326",
+      "missing_geometries": 0,
+      "highway_distribution": {
+        "residential": 105365,
+        "service": 25903,
+        "tertiary": 5719,
+        "living_street": 5607,
+        "secondary": 3429,
+        "primary": 1219,
+        "trunk": 991,
+        "unclassified": 905,
+        "secondary_link": 879,
+        "trunk_link": 613,
+        "primary_link": 532,
+        "tertiary_link": 493,
+        "motorway": 212,
+        "motorway_link": 97
+      },
+      "lighting_status_distribution": {
+        "unknown": 151560,
+        "yes": 362,
+        "no": 35,
+        "limited": 7
+      },
+      "bridge_count": 2133,
+      "tunnel_count": 371,
+      "sidewalk_explicit_count": 268
+    },
+    "delhi_pedestrian_network": {
+      "file_path": "data/processed/delhi_pedestrian_network.geojson",
+      "size_bytes": 12696237,
+      "md5_checksum": "d24c56448631e7d5a7a697ce29fab57d",
+      "sha256_checksum": "b90d2056f47c60cee718996a52402b1a5b3eaa86afcfa2d1bf0a7644b3fbc934",
+      "feature_count": 14742,
+      "geometry_type": "LineString",
+      "crs": "EPSG:4326",
+      "missing_geometries": 0,
+      "pedestrian_class_distribution": {
+        "dedicated_footway": 11471,
+        "shared_path": 1607,
+        "track": 1082,
+        "indoor_corridor": 399,
+        "cycleway": 172,
+        "bridleway": 11
+      },
+      "lighting_status_distribution": {
+        "unknown": 14189,
+        "yes": 394,
+        "no": 159
+      },
+      "indoor_corridor_count": 399
+    },
+    "delhi_lighting_fixtures": {
+      "file_path": "data/processed/delhi_lighting_fixtures.geojson",
+      "size_bytes": 549057,
+      "md5_checksum": "406f9b5f0060729d0225c655c13f0163",
+      "sha256_checksum": "6a2525bad48484d05ec90d5974af0958d85b87c08e50231ddc880833a7d22eef",
+      "feature_count": 1462,
+      "geometry_type": "Point",
+      "crs": "EPSG:4326",
+      "missing_geometries": 0,
+      "lamp_mount_distribution": {
+        "bent_mast": 593,
+        "None": 526,
+        "pole": 117,
+        "straight_mast": 102,
+        "high_mast": 100,
+        "wall": 22,
+        "suspended": 2
+      }
+    },
+    "delhi_pedestrian_crossings": {
+      "file_path": "data/processed/delhi_pedestrian_crossings.geojson",
+      "size_bytes": 805469,
+      "md5_checksum": "c102343de19847da2f0e7f51e001f6fa",
+      "sha256_checksum": "e2e170f7718d0199827a38138d9d4a299a0af05328300cfee569d2d3385e4c0f",
+      "feature_count": 1959,
+      "geometry_type": "Point",
+      "crs": "EPSG:4326",
+      "missing_geometries": 0,
+      "crossing_type_distribution": {
+        "None": 833,
+        "uncontrolled": 556,
+        "marked": 258,
+        "traffic_signals": 221,
+        "unmarked": 44,
+        "uncontrolled;unmarked": 18,
+        "unmarked;uncontrolled": 16,
+        "zebra": 10,
+        "ze": 2,
+        "marked;uncontrolled": 1
+      }
+    }
+  },
+  "known_limitations": {
+    "boundary_crossing_ways_without_interior_nodes": {
+      "total_missed_ways": 159,
+      "non_highway_features": 154,
+      "highway_features": 5,
+      "impact_assessment": "Five highway ways intersecting the Delhi boundary were missed because they had no interior nodes. Their impact on interior network completeness has not been conclusively established; boundary-fringe coverage should therefore be treated as potentially incomplete."
+    },
+    "lighting_coverage_limitation": {
+      "description": "Over 99.7% of Delhi roads have missing 'lit' tags in OpenStreetMap. Missing tags are strictly classified as 'unknown' and must never be interpreted as unlit.",
+      "unknown_lighting_ratio_pct": 99.73
+    }
+  },
+  "source_count_reconciliation": {
+    "bridge_count_investigation": {
+      "raw_bridge_tagged_ways": 3389,
+      "earlier_reported_count": 3387,
+      "delta": 2,
+      "candidate_explanations": [
+        "Excluding the two highway=proposed ways (Way 795686053, Way 795686054) yields 3,387.",
+        "Excluding the two bridge=boardwalk ways (Way 1267633670, Way 1267633673) also yields 3,387."
+      ],
+      "status": "The original filtering logic that produced the earlier 3,387 count has not been established; both are documented as possible explanations and neither is confirmed as the historical cause."
+    },
+    "tunnel_count_investigation": {
+      "raw_tunnel_tagged_ways": 1344,
+      "explicit_negative_tunnel_ways": 3,
+      "positive_tunnel_ways": 1341,
+      "status": "Confirmed: 1,344 tagged ways in the source PBF include exactly three explicit negative tags (tunnel=no: Way 520952534, Way 520982881, Way 852003512), giving 1,341 when those explicit negatives are excluded."
+    }
+  },
+  "library_versions": {
+    "osmium_pyosmium": "4.3.2",
+    "libosmium": "2.23.1",
+    "protozero": "1.8.2",
+    "shapely": "2.0.7",
+    "geopandas": "1.0.1"
+  }
+}

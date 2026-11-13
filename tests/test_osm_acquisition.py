@@ -28,7 +28,23 @@ EXPECTED_SOURCE_MD5 = "74a58d850f10edfedd7b1e50303bbb02"
 EXPECTED_CLIPPED_RELATIONS = 5000
 EXPECTED_CLIPPED_WAYS = 456837
 
+SOURCE_PBF_REQUIRED = pytest.mark.skipif(
+    not SOURCE_PBF.exists(),
+    reason=(
+        "Requires local regional data/raw/osm/northern-zone-latest.osm.pbf "
+        "(download via: .venv/bin/python src/ingestion/osm_downloader.py)"
+    ),
+)
+CLIPPED_PBF_REQUIRED = pytest.mark.skipif(
+    not CLIPPED_PBF.exists(),
+    reason=(
+        "Requires local clipped data/raw/osm/delhi_clipped.osm.pbf "
+        "(clip via: .venv/bin/python src/ingestion/osm_clipper.py)"
+    ),
+)
 
+
+@SOURCE_PBF_REQUIRED
 def test_original_archive_exists_and_intact():
     """Confirms the original Northern Zone PBF archive is present and immutable."""
     assert SOURCE_PBF.exists(), f"Source PBF not found at {SOURCE_PBF}"
@@ -37,6 +53,7 @@ def test_original_archive_exists_and_intact():
     )
 
 
+@SOURCE_PBF_REQUIRED
 def test_original_archive_readable():
     """Confirms the original PBF can be read by libosmium."""
     reader = osmium.io.Reader(str(SOURCE_PBF))
@@ -46,6 +63,7 @@ def test_original_archive_readable():
     reader.close()
 
 
+@CLIPPED_PBF_REQUIRED
 def test_clipped_pbf_exists_and_readable():
     """Confirms the clipped Delhi PBF exists, is non-empty, and readable."""
     assert CLIPPED_PBF.exists(), f"Clipped PBF not found at {CLIPPED_PBF}"
@@ -59,6 +77,7 @@ def test_clipped_pbf_exists_and_readable():
     reader.close()
 
 
+@CLIPPED_PBF_REQUIRED
 def test_clipped_pbf_contains_features():
     """Verifies that the clipped PBF contains non-zero nodes, ways, and relations."""
     node_count = 0
@@ -78,6 +97,7 @@ def test_clipped_pbf_contains_features():
     assert rel_count >= 4_000, f"Expected at least 4k relations in Delhi, found {rel_count:,}"
 
 
+@CLIPPED_PBF_REQUIRED
 def test_clipped_pbf_geographic_concentration():
     """
     Verifies that features are overwhelmingly concentrated within Delhi and its immediate
@@ -106,6 +126,7 @@ def test_clipped_pbf_geographic_concentration():
     )
 
 
+@CLIPPED_PBF_REQUIRED
 def test_clipped_pbf_way_reference_completeness():
     """
     Exhaustively verifies that ALL ways in the clipped PBF have all referenced nodes
@@ -137,6 +158,7 @@ def test_clipped_pbf_way_reference_completeness():
     )
 
 
+@CLIPPED_PBF_REQUIRED
 def test_clipped_pbf_relation_member_completeness():
     """
     Exhaustively verifies that ALL relations in the clipped PBF have all member
