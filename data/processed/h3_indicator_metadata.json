@@ -1,0 +1,119 @@
+{
+  "step": "Phase 2B Step 2B: H3 Environmental Indicator Aggregation",
+  "aggregation_started_utc": "2026-11-13T15:28:47.630260+00:00",
+  "aggregation_completed_utc": "2026-11-13T15:28:52.706728+00:00",
+  "elapsed_seconds": 5.08,
+  "metric_crs": "EPSG:32643",
+  "output_crs": "EPSG:4326",
+  "grid": {
+    "source_file": "data/processed/delhi_grid_res8_clipped.geojson",
+    "total_cells": 2093,
+    "resolution": 8,
+    "md5_checksum": "a9b592f6444939f312001139ef95fe60",
+    "sha256_checksum": "1aff0288cac10ed0b2108d1593d3cdab62b56b196588fd816705412ff0b57dee"
+  },
+  "source_layers": {
+    "roads": {
+      "path": "data/processed/delhi_road_network.geojson",
+      "feature_count": 151964,
+      "md5_checksum": "ef85bfc8b8b26898c142ec1d7a3b5402",
+      "sha256_checksum": "fdfb9837edfb0b5a5f7a14195fa5fd2e23c92b9aa8da1d6b66b39e1b410a102e"
+    },
+    "pedestrian": {
+      "path": "data/processed/delhi_pedestrian_network.geojson",
+      "feature_count": 14742,
+      "md5_checksum": "d24c56448631e7d5a7a697ce29fab57d",
+      "sha256_checksum": "b90d2056f47c60cee718996a52402b1a5b3eaa86afcfa2d1bf0a7644b3fbc934"
+    },
+    "lighting_fixtures": {
+      "path": "data/processed/delhi_lighting_fixtures.geojson",
+      "feature_count": 1462,
+      "md5_checksum": "406f9b5f0060729d0225c655c13f0163",
+      "sha256_checksum": "6a2525bad48484d05ec90d5974af0958d85b87c08e50231ddc880833a7d22eef"
+    },
+    "pedestrian_crossings": {
+      "path": "data/processed/delhi_pedestrian_crossings.geojson",
+      "feature_count": 1959,
+      "md5_checksum": "c102343de19847da2f0e7f51e001f6fa",
+      "sha256_checksum": "e2e170f7718d0199827a38138d9d4a299a0af05328300cfee569d2d3385e4c0f"
+    }
+  },
+  "spatial_totals": {
+    "road_total_length_km": 23479.77,
+    "ped_total_length_km": 1612.55,
+    "total_street_lamps_assigned": 1462,
+    "total_pedestrian_crossings_assigned": 1953,
+    "unassigned_lamps_outside_boundary": 0,
+    "unassigned_crossings_outside_boundary": 6
+  },
+  "road_hierarchy_distribution_km": {
+    "residential": 14474.68,
+    "service": 3464.3,
+    "living_street": 546.66,
+    "tertiary": 2304.99,
+    "secondary": 1235.7,
+    "primary": 501.55,
+    "trunk": 510.32,
+    "motorway": 126.14,
+    "unclassified": 315.43
+  },
+  "pedestrian_class_distribution_km": {
+    "dedicated_footway": 835.8,
+    "shared_path": 274.34,
+    "track": 409.09,
+    "indoor_corridor": 22.09,
+    "cycleway": 67.17,
+    "bridleway": 4.06
+  },
+  "road_lighting_distribution_km": {
+    "confirmed_lit": 99.41,
+    "confirmed_unlit": 6.88,
+    "limited": 0.88,
+    "unknown": 23372.61
+  },
+  "pedestrian_lighting_distribution_km": {
+    "confirmed_lit": 50.27,
+    "confirmed_unlit": 13.92,
+    "limited": 0.0,
+    "unknown": 1548.37
+  },
+  "cell_occupancy_metrics": {
+    "total_cells": 2093,
+    "cells_with_roads": 1993,
+    "cells_with_roads_pct": 95.22,
+    "cells_with_pedestrian_infra": 1329,
+    "cells_with_pedestrian_infra_pct": 63.5,
+    "cells_with_street_lamps": 98,
+    "cells_with_street_lamps_pct": 4.68,
+    "cells_with_pedestrian_crossings": 289,
+    "cells_with_pedestrian_crossings_pct": 13.81,
+    "cells_with_zero_mapped_infrastructure": 56,
+    "cells_with_zero_mapped_infrastructure_pct": 2.68
+  },
+  "validation_invariants": {
+    "max_road_lighting_reconciliation_error_m": 0.010000000002037268,
+    "max_road_hierarchy_reconciliation_error_m": 0.020000000000436557,
+    "max_ped_lighting_reconciliation_error_m": 0.010000000000218279,
+    "max_ped_class_reconciliation_error_m": 0.010000000000218279,
+    "point_conservation_verified": true,
+    "geometry_validity_verified": true,
+    "cell_id_concordance_verified": true
+  },
+  "output_artifacts": {
+    "geojson": {
+      "path": "data/processed/delhi_h3_environmental_indicators.geojson",
+      "size_bytes": 4171769,
+      "feature_count": 2093,
+      "column_count": 52,
+      "md5_checksum": "2c8393e8e085ca2a8097c6da1777ff1c",
+      "sha256_checksum": "2165ae5c4d5e2e5a1259b85d192a4759acdbd71d95310de380018441bb5b4325"
+    }
+  },
+  "library_versions": {
+    "shapely": "2.0.7",
+    "geopandas": "1.0.1",
+    "pyogrio": "0.11.1",
+    "pandas": "2.3.3",
+    "numpy": "2.0.2"
+  }
+}
